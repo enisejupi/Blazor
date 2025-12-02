@@ -1,0 +1,64 @@
+# Image Denoising Configuration
+
+# Dataset settings
+dataset:
+  num_images: 15
+  image_urls:
+    - "https://images.unsplash.com/photo-1506905925346-21bda4d32df4"  # Landscape
+    - "https://images.unsplash.com/photo-1469474968028-56623f02e42e"  # Nature
+    - "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5"  # Portrait
+    - "https://images.unsplash.com/photo-1518791841217-8f162f1e1131"  # Cat
+    - "https://images.unsplash.com/photo-1441974231531-c6227db76b6e"  # Forest
+  download_dir: "data/images"
+  image_size: [256, 256]
+
+# Noise settings
+noise:
+  types: ["gaussian", "salt_pepper", "speckle"]
+  gaussian:
+    sigma: [15, 25, 35]
+  salt_pepper:
+    amount: [0.05, 0.1, 0.15]
+  speckle:
+    variance: [0.05, 0.1, 0.15]
+
+# Classical methods
+classical_methods:
+  median:
+    kernel_sizes: [3, 5, 7]
+  wiener:
+    noise_variance: [100, 300, 500]
+  wavelet:
+    wavelet_types: ["db1", "db4", "sym4"]
+    threshold_modes: ["soft", "hard"]
+
+# DnCNN settings
+dncnn:
+  depth: 17
+  channels: 64
+  kernel_size: 3
+  batch_size: 32
+  epochs: 50
+  learning_rate: 0.001
+  train_size: 400
+  val_size: 100
+
+# Metrics
+metrics:
+  - "psnr"
+  - "ssim"
+  - "niqe"
+
+# Paths
+paths:
+  data_dir: "data"
+  models_dir: "models"
+  results_dir: "results"
+  reports_dir: "reports"
+  visualizations_dir: "visualizations"
+
+# Dashboard settings
+dashboard:
+  port: 8501
+  theme: "light"
+  max_upload_size: 10  # MB

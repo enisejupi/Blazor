@@ -1,0 +1,52 @@
+# =================================================================
+# REQUIREMENTS FOR PYTHON 3.14 (Windows - Pre-built wheels only)
+# =================================================================
+# Note: Python 3.14 is very new. For best compatibility, consider
+# using Python 3.11 or 3.12 instead.
+#
+# Some packages don't have pre-built wheels yet for Python 3.14:
+# - scikit-image (requires C compiler)
+# - torch/torchvision (no official Python 3.14 support yet)
+# - streamlit dependencies (pyarrow needs compilation)
+# =================================================================
+
+# Core scientific computing (HAS Python 3.14 wheels)
+numpy>=2.0.0
+scipy>=1.16.0
+opencv-python>=4.10.0
+Pillow>=10.0.0
+PyWavelets>=1.7.0
+
+# Configuration
+pyyaml>=6.0.1
+
+# Visualization (HAS Python 3.14 wheels)
+matplotlib>=3.9.0
+plotly>=5.24.0
+pandas>=2.2.0
+
+# Utilities (HAS Python 3.14 wheels)
+requests>=2.32.0
+tqdm>=4.66.0
+
+# PDF generation (HAS Python 3.14 wheels)
+reportlab>=4.0.4
+pypdf>=5.0.0
+
+# =================================================================
+# PACKAGES THAT NEED COMPILATION (Not available for Python 3.14)
+# =================================================================
+# Uncomment these if you install Visual Studio Build Tools or
+# use Python 3.11/3.12 instead:
+
+# scikit-image>=0.24.0  # Image processing - needs C compiler
+# torch>=2.5.0          # Deep learning - no Python 3.14 wheels yet
+# torchvision>=0.20.0   # Computer vision for PyTorch
+# streamlit>=1.40.0     # Dashboard - pyarrow dependency needs compilation
+# piq>=0.8.0            # Image quality metrics - needs PyTorch
+
+# =================================================================
+# WORKAROUND FOR DEVELOPMENT
+# =================================================================
+# For now, you can use the classical denoising methods which work
+# with the installed packages. DNN-based methods require PyTorch.
